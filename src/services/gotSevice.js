@@ -36,12 +36,16 @@ export default class GotService {
   }
 
   _transformChracter(char) {
+    // const l = 'https://www.anapioficeandfire.com/api/characters/';
+    // const k = l.length;
+    // console.log(k);
     return {
       name: char.name || 'undefined',
       gender: char.gender || 'undefined',
       born: char.born || 'undefined',
       died: char.died || 'undefined',
       culture: char.culture || 'undefined',
+      id: +char.url.slice(49) || 'undefined',
     };
   }
 
