@@ -6,7 +6,7 @@ import CharDetails, { Field } from '../charDetails';
 import gotService from '../../services/gotService';
 import RowBlock from '../rowBlock';
 
-export default class CharacterPage extends Component {
+export default class HousePage extends Component {
   gotService = new gotService();
   state = {
     selectedChar: null,
@@ -32,19 +32,19 @@ export default class CharacterPage extends Component {
     const itemList = (
       <ItemList
         onItemSelected={this.onItemSelected}
-        getData={this.gotService.getAllCharacters}
-        renderItem={(item) => `${item.name} (${item.gender})`}
+        getData={this.gotService.getAllHouses}
+        renderItem={(item) => `${item.name} `}
       />
     );
     const charDetails = (
       <CharDetails
         charId={this.state.selectedChar}
-        getData={this.gotService.getOneCharacter}
+        getData={this.gotService.getOneHouse}
       >
-        <Field field="gender" label="Gender" />
-        <Field field="born" label="Born" />
-        <Field field="died" label="Died" />
-        <Field field="culture" label="Culture" />
+        <Field field="region" label="Region" />
+        <Field field="words" label="Words" />
+        <Field field="overlord" label="Overlord" />
+        <Field field="ancestralWeapons" label="Ancestral Weapons" />
       </CharDetails>
     );
 
