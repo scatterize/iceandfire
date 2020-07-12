@@ -40,7 +40,7 @@ export default class RandomChar extends Component {
 
   componentDidMount() {
     this.updateChar();
-    this.timerId = setInterval(this.updateChar, 1500);
+    this.timerId = setInterval(this.updateChar, this.props.interval);
     console.log('DidMount');
   }
 
@@ -65,6 +65,9 @@ export default class RandomChar extends Component {
     );
   }
 }
+RandomChar.defaultProps = {
+  interval: 15000,
+};
 
 const View = ({ char }) => {
   const { name, gender, born, died, culture } = char;
